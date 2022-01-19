@@ -1,0 +1,4 @@
+{
+  "python.pythonPath": "/home/dbara/code/arlo_doorbell_trigger/venv/bin/python",
+  "python.formatting.provider": "autopep8"
+}
