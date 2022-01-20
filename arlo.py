@@ -16,7 +16,10 @@ def setup():
     global arlo
     arlo = pyaarlo.PyArlo(username=os.environ.get('ARLO_USERNAME'),
                           password=os.environ.get('ARLO_PASSWORD'),
-                          )
+                          tfa_source='imap', tfa_type='email',
+                          tfa_host=os.environ.get('TFA_HOST'),
+                          tfa_username=os.environ.get('TFA_USERNAME'),
+                          tfa_password=os.environ.get('TFA_PASSWORD'))
     telegram_utils.send_message("Arlo Doorbell system booted")
 
 
