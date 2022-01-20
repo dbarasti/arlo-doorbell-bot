@@ -15,4 +15,9 @@ def send_message(message):
     bot.send_message(text=message, chat_id=os.environ.get('MY_CHAT_ID'))
 
 
+def send_photo(photo):
+    global bot
+    bot.send_photo(photo=photo, chat_id=os.environ.get('MY_CHAT_ID'))
+
+
 bot = setup()

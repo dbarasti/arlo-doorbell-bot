@@ -24,24 +24,25 @@ def is_running():
     return running
 
 
-def send_snapshot(device):
-    snapshot = device.get_snapshot()
+def send_snapshot():
+    global camera
+    snapshot = camera.get_snapshot()
     logging.info("Sending snapshot")
-    telegram_utils.send_message(device.last_image)
+    telegram_utils.send_photo(snapshot)
 
 
 def get_snapshot_file():
     global camera
     snapshot = camera.get_snapshot()
-    logging.info("Sending snapshot")
     return snapshot
 
 
 def motion_detected(device, attr, value):
     global last_snapshot
     logging.info("Motion detected")
+    telegram_utils.send_message("Motion detected")
     if last_snapshot is None or timeout_passed():
-        send_snapshot(device)
+        send_snapshot()
         last_snapshot = datetime.datetime.now()
 
 
