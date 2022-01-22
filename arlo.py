@@ -43,7 +43,7 @@ def get_snapshot_file():
 
 def snapshot_source():
     global arlo
-    return pyaarlo.last_image_source()
+    return pyaarlo.last_image_source
 
 
 def motion_detected(device, attr, value):
