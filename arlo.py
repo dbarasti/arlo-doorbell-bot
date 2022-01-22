@@ -36,6 +36,7 @@ def send_snapshot():
 
 
 def get_snapshot_file():
+
     global camera
     snapshot = camera.get_snapshot()
     return snapshot
@@ -43,7 +44,7 @@ def get_snapshot_file():
 
 def snapshot_source():
     global arlo
-    return arlo.last_image_source
+    return arlo.last_image_source()
 
 
 def motion_detected(device, attr, value):
