@@ -29,6 +29,8 @@ def trigger_snapshot(update: Update, context: CallbackContext):
     if update.effective_chat.id == int(os.environ.get('MY_CHAT_ID')):
         if arlo.is_running():
             snapshot = arlo.get_snapshot_file()
+            context.bot.send_message(
+                chat_id=update.effective_chat.id, text=arlo.snapshot_source())
             context.bot.send_photo(
                 chat_id=update.effective_chat.id, photo=io.BytesIO(snapshot))
 

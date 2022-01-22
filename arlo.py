@@ -31,6 +31,7 @@ def send_snapshot():
     global camera
     snapshot = camera.get_snapshot()
     logging.info("Sending snapshot")
+    telegram_utils.send_message(snapshot_source())
     telegram_utils.send_photo(snapshot)
 
 
@@ -38,6 +39,11 @@ def get_snapshot_file():
     global camera
     snapshot = camera.get_snapshot()
     return snapshot
+
+
+def snapshot_source():
+    global arlo
+    return pyaarlo.last_image_source()
 
 
 def motion_detected(device, attr, value):
