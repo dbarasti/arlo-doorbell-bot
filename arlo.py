@@ -31,7 +31,7 @@ def send_snapshot():
     global camera
     snapshot = camera.get_snapshot()
     logging.info("Sending snapshot")
-    telegram_utils.send_message(snapshot_source())
+    # TODO fix: telegram_utils.send_message(snapshot_source())
     telegram_utils.send_photo(snapshot)
 
 
